@@ -82,16 +82,13 @@ namespace Code.MapGeneration.Handlers
                 Collider2D isOccupied = Physics2D.OverlapCircle(tile.transform.position, 0.1f, ActorLayer);
                 if (isOccupied)
                 {
-                    Debug.Log($"Tile occupied (Called from {this.gameObject.name})");
                 }
                 else
                 {
                     int randomEnemy = Random.Range(0, Enemies.Count);
 
                     GameObject enemy = Instantiate(Enemies[randomEnemy], tile.transform.position, Quaternion.identity);
-                    
-                    Debug.Log($"Placed \"{enemy.name}\" at {tile.transform.position}. (Called from {this.gameObject.name})");
-                }  
+                }
             }
             CreateItems();
         }
@@ -108,15 +105,12 @@ namespace Code.MapGeneration.Handlers
                 Collider2D isOccupied = Physics2D.OverlapCircle(tile.transform.position, 0.1f, ActorLayer);
                 if (isOccupied)
                 {
-                    Debug.Log($"Tile occupied (Called from {this.gameObject.name})");
                 }
                 else
                 {
                     int randomItem = Random.Range(0, Items.Count);
 
                     GameObject item = Instantiate(Enemies[randomItem], tile.transform.position, Quaternion.identity);
-                    
-                    Debug.Log($"Placed \"{item.name}\" at {tile.transform.position}. (Called from {this.gameObject.name})");
                 }  
             }
         }

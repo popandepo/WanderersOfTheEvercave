@@ -18,7 +18,7 @@ namespace Code.MapGeneration.Handlers
             TilesToGenerate = GetComponentsInChildren<TileGenerator>().ToList();
             RoomsToGenerate = GetComponentsInChildren<RoomGenerator>().ToList();
             
-            Invoke(nameof(StartGeneration),Random.Range(0.1f,0.3f));
+            Invoke(nameof(StartGeneration),0.05f);
         }
 
         private void StartGeneration()
