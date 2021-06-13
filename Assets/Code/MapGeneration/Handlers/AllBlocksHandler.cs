@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
 namespace Code.MapGeneration.Handlers
@@ -14,20 +16,20 @@ namespace Code.MapGeneration.Handlers
         
         #region serializedHalls
 
-        public List<GameObject> LHalls;
-        public List<GameObject> RHalls;
         public List<GameObject> UHalls;
+        public List<GameObject> RHalls;
         public List<GameObject> DHalls;
+        public List<GameObject> LHalls;
 
         #endregion serializedHalls
         
         
         #region serializedRooms
 
-        public List<GameObject> LRooms;
-        public List<GameObject> RRooms;
         public List<GameObject> URooms;
+        public List<GameObject> RRooms;
         public List<GameObject> DRooms;
+        public List<GameObject> LRooms;
 
         #endregion serializedRooms
         
@@ -65,10 +67,54 @@ namespace Code.MapGeneration.Handlers
         {
             _enemiesToPlace = Random.Range(MinEnemies, MaxEnemies);
             _itemsToPlace = Random.Range(MinItems, MaxItems);
-            
+
+            //Invoke(nameof(CullExcess), 1.5f);
             Invoke(nameof(CreateEnemies),2f);
+            
+        }
+
+        private void Awake()
+        {
+            InitiateBlocks();
+        }
+
+        private void CullExcess()
+        {
+            List<GameObject> allTiles = GameObject.FindGameObjectsWithTag("FloorTile").ToList();
+
+            foreach (var tile in allTiles)
+            {
+                var position = tile.transform.position;
+                if (position.x>30 || position.x<-30 || position.y>20 || position.y<-20)
+                {
+                    Destroy(tile);
+                }
+            }
         }
         
+        private void InitiateBlocks()
+        {
+            foreach (string blockType in new []{"Halls","Rooms"})
+            {
+                foreach (string letter in new[] {"U", "R", "D", "L"})
+                {
+                    string path = $"Prefabs/Map/Blocks/{blockType}/{letter}";
+
+                    List<GameObject> holder = new List<GameObject>();
+                    
+                    foreach (var g in Resources.LoadAll(path,typeof(GameObject)))
+                    {
+                        holder.Add(g as GameObject);
+                    }
+                    
+                    typeof(AllBlocksHandler).GetField($"{letter}{blockType}").SetValue(this,holder);
+                }
+            }
+
+            
+            
+        }
+
         private void CreateEnemies()
         {
             List<GameObject> tiles = GameObject.FindGameObjectsWithTag("FloorTile").ToList();

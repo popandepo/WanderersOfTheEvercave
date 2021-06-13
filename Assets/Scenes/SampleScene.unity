@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 21.84745
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -235,23 +235,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ea39a031566f547aac15b6455e05b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LHalls:
-  - {fileID: 1215247679758215652, guid: a68fc1852fb1b9e4bb427d326a092c6c, type: 3}
-  RHalls:
-  - {fileID: 1215247679758215652, guid: eb612603af6c7774bb420a0162686e22, type: 3}
-  UHalls:
-  - {fileID: 1215247679758215652, guid: f7897142d7320da488610ba37aac8b0b, type: 3}
-  DHalls:
-  - {fileID: 1215247679758215652, guid: 2b2c8cbcec53dd649a99371564a4dd89, type: 3}
-  - {fileID: 1215247679758215652, guid: 554175a7578796f478be4e60cfc4f32a, type: 3}
-  LRooms:
-  - {fileID: 1215247679758215652, guid: 9b12faeac53f8eb45a092ee774040915, type: 3}
-  RRooms:
-  - {fileID: 1215247679758215652, guid: aa88fd2ded58db744b154d447cf13ed2, type: 3}
-  URooms:
-  - {fileID: 1215247679758215652, guid: b1825324849a5e143a9a6db9331a7e8f, type: 3}
-  DRooms:
-  - {fileID: 1215247679758215652, guid: 3ed6e7181c69f694daa5c9847ea7ace8, type: 3}
+  UHalls: []
+  RHalls: []
+  DHalls: []
+  LHalls: []
+  URooms: []
+  RRooms: []
+  DRooms: []
+  LRooms: []
   FloorTileBlocks:
   - {fileID: 6109034099376448950, guid: b3fc66ee961c9a0479fc72499ea2f1b8, type: 3}
   WallTileBlocks:
@@ -262,7 +253,7 @@ MonoBehaviour:
     m_Bits: 1
   Enemies: []
   Items: []
-  RoomSize: 100
+  RoomSize: 50
   MaxEnemies: 12
   MinEnemies: 3
   MaxItems: 5
