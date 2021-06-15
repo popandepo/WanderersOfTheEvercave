@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Code.MapGeneration.Generators;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Code.MapGeneration.Handlers
 {
@@ -17,8 +14,8 @@ namespace Code.MapGeneration.Handlers
         {
             TilesToGenerate = GetComponentsInChildren<TileGenerator>().ToList();
             RoomsToGenerate = GetComponentsInChildren<RoomGenerator>().ToList();
-            
-            Invoke(nameof(StartGeneration),0.05f);
+
+            Invoke(nameof(StartGeneration), 0.05f);
         }
 
         private void StartGeneration()
@@ -34,8 +31,8 @@ namespace Code.MapGeneration.Handlers
                 room.SpawnCheck();
                 room.transform.parent = null;
             }
-            
-            Destroy(this.gameObject);
+
+            Destroy(gameObject);
         }
     }
 }

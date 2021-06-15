@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
 
 public class TestTester
 {
@@ -12,7 +8,7 @@ public class TestTester
         int one = 1;
         int two = 2;
         int three = 3;
-        
-        Assert.IsTrue(one+two==three);
+
+        Assert.IsTrue(one + two == three);
     }
 }

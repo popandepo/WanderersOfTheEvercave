@@ -5,18 +5,17 @@ namespace Code.MapGeneration.Generators
 {
     public class RoomGenerator : MonoBehaviour
     {
-        private Collider2D _isColliding;
-
-        public int Direction = 0; //u0 r1 d2 l3
+        public int Direction; //u0 r1 d2 l3
         public int CreateHall;
+        private Collider2D _isColliding;
 
         public void SpawnCheck()
         {
-            _isColliding = Physics2D.OverlapCircle((Vector2) transform.position, 0.2f);
+            _isColliding = Physics2D.OverlapCircle(transform.position, 0.2f);
 
             if (_isColliding)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
                 return;
             }
 
@@ -25,23 +24,19 @@ namespace Code.MapGeneration.Generators
 
             if (handler.RoomSize <= 0)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
                 return;
             }
 
             GameObject block = null;
-            
+
             if (CreateHall == 0)
-            {
                 MakeRoom(handler);
-            }
             else
-            {
                 MakeHall(handler);
-            }
 
             handler.RoomSize -= 1;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         private void MakeHall(AllBlocksHandler handler)

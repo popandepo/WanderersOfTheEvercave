@@ -11,10 +11,10 @@ namespace Code.MapGeneration.Generators
 
         public void SpawnCheck()
         {
-            bool hitUp = Physics2D.OverlapCircle((Vector2) transform.position, 0.1f);
+            bool hitUp = Physics2D.OverlapCircle(transform.position, 0.1f);
             if (hitUp)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
                 return;
             }
 
@@ -30,15 +30,15 @@ namespace Code.MapGeneration.Generators
                     block = Instantiate(handler.FloorTileBlocks[spawnRandom], transform.position,
                         Quaternion.identity);
                     break;
-                
+
                 case 1:
                     spawnRandom = Random.Range(0, handler.WallTileBlocks.Count);
                     block = Instantiate(handler.WallTileBlocks[spawnRandom], transform.position,
                         Quaternion.identity);
                     break;
             }
-            
-            Destroy(this.gameObject);
+
+            Destroy(gameObject);
         }
     }
 }
