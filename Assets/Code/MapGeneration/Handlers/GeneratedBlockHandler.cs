@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.MapGeneration.Generators;
@@ -9,6 +10,29 @@ namespace Code.MapGeneration.Handlers
     {
         public List<TileGenerator> TilesToGenerate;
         public List<RoomGenerator> RoomsToGenerate;
+        public int Height;
+        public int Width;
+
+        private void OnValidate()
+        {
+            foreach (Transform node in transform)
+            {
+                Vector3 position = node.position;
+                
+                int nodeHeight = (int)Math.Abs(position.y);
+                int nodeWidth = (int) Math.Abs(position.x);
+                
+                if (Height < nodeHeight)
+                {
+                    Height = nodeHeight;
+                }
+
+                if (Width < nodeWidth)
+                {
+                    Width = nodeWidth;
+                }
+            }
+        }
 
         private void Start()
         {
