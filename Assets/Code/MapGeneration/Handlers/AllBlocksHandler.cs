@@ -6,6 +6,37 @@ namespace Code.MapGeneration.Handlers
 {
     public class AllBlocksHandler : MonoBehaviour
     {
+        public List<GameObject> UHalls;
+        public List<GameObject> RHalls;
+        public List<GameObject> DHalls;
+        public List<GameObject> LHalls;
+
+        public List<GameObject> URooms;
+        public List<GameObject> RRooms;
+        public List<GameObject> DRooms;
+        public List<GameObject> LRooms;
+
+        public List<GameObject> FloorTileBlocks;
+        public List<GameObject> WallTileBlocks;
+        public List<GameObject> HalfObstacleTileBlocks;
+        public List<GameObject> FullObstacleTileBlocks;
+
+        public LayerMask ActorLayer;
+
+        public List<GameObject> Enemies;
+        public List<GameObject> Items;
+
+        public int RoomSize;
+
+        public int MaxEnemies = 12;
+        public int MinEnemies = 3;
+
+        public int MaxItems = 5;
+        public int MinItems;
+
+        private int _enemiesToPlace;
+        private int _itemsToPlace;
+
         private void Awake()
         {
             InitiateBlocks();
@@ -93,57 +124,5 @@ namespace Code.MapGeneration.Handlers
                 }
             }
         }
-
-        #region Variables
-
-        #region serializedHalls
-
-        public List<GameObject> UHalls;
-        public List<GameObject> RHalls;
-        public List<GameObject> DHalls;
-        public List<GameObject> LHalls;
-
-        #endregion serializedHalls
-
-
-        #region serializedRooms
-
-        public List<GameObject> URooms;
-        public List<GameObject> RRooms;
-        public List<GameObject> DRooms;
-        public List<GameObject> LRooms;
-
-        #endregion serializedRooms
-
-
-        #region serializedBlocks
-
-        public List<GameObject> FloorTileBlocks;
-        public List<GameObject> WallTileBlocks;
-        public List<GameObject> WallTileLargeBlocks;
-
-        #endregion serializedBlocks
-
-
-        #region genericVariables
-
-        public LayerMask ActorLayer;
-
-        public List<GameObject> Enemies;
-        public List<GameObject> Items;
-
-        public int RoomSize;
-
-        public int MaxEnemies = 12;
-        public int MinEnemies = 3;
-        private int _enemiesToPlace;
-
-        public int MaxItems = 5;
-        public int MinItems;
-        private int _itemsToPlace;
-
-        #endregion genericVariables
-
-        #endregion Variables
     }
 }
