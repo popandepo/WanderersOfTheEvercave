@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3479718217786723234}
   - component: {fileID: 399489431435304119}
   - component: {fileID: 6180562135810018806}
+  - component: {fileID: -3524088341156220019}
   m_Layer: 0
   m_Name: FloorTile
   m_TagString: FloorTile
@@ -123,3 +124,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Frame: {fileID: 0}
+--- !u!114 &-3524088341156220019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6109034099376448950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec1258e9cd047148a4a3f0ef3dc178e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
