@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+using Code.AStarCode;
 using UnityEngine;
 
 namespace Code
@@ -5,35 +8,34 @@ namespace Code
     public class FramePlacer : MonoBehaviour
     {
         public GameObject Frame;
-        private bool _hasFrame;
-        private bool _mouseOver;
 
         private void Update()
         {
-            if (!_mouseOver)
-                if (_hasFrame)
-                {
-                    Destroy(Frame);
-                    _hasFrame = false;
-                }
+            List<Collider2D> colliders =
+                Physics2D.OverlapCircleAll(
+                    Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f).ToList();
+            
+            Collider2D? floor = colliders.FirstOrDefault(c => c.gameObject.name.StartsWith("FloorTile"));
+            bool frame = colliders.FirstOrDefault(c => c.gameObject.name.StartsWith("TileFrame"));
 
-            _mouseOver = false;
+            if (frame) return;
+            if (floor)
+            {
+                Frame.transform.position = floor.transform.position;
+                Frame.GetComponent<InitiateAStar>().Active = true;
+            }
+            else Frame.GetComponent<InitiateAStar>().Active = false;
         }
 
-        private void OnMouseOver()
+        private void Start()
         {
-            _mouseOver = true;
-            if (Frame != null) return;
             string path = "Prefabs/Map/Visuals/Frames";
-
             GameObject holder = null;
 
             foreach (Object g in Resources.LoadAll(path, typeof(GameObject))) holder = g as GameObject;
-
             typeof(FramePlacer).GetField("Frame").SetValue(this, holder);
 
             Frame = Instantiate(Frame, transform.position, Quaternion.identity);
-            _hasFrame = true;
         }
     }
 }

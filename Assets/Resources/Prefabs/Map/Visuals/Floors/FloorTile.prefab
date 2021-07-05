@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8048336726392111817}
   - component: {fileID: 3479718217786723234}
   - component: {fileID: 399489431435304119}
-  - component: {fileID: 6180562135810018806}
   - component: {fileID: 79577095070741227}
   m_Layer: 0
   m_Name: FloorTile
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16805bb3064cce644a1a7d04d25c1c92, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.20138311, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,19 +110,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01}
   m_EdgeRadius: 0
---- !u!114 &6180562135810018806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6109034099376448950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59306ccddd1ef41458024601e8498386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Frame: {fileID: 0}
 --- !u!114 &79577095070741227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameFrom: {fileID: 0}
+  HeuristicScore: 0
   TotalScore: 0
   PathScore: 0
-  HeuristicScore: 0

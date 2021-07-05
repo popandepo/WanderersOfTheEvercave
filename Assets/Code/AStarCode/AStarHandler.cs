@@ -261,8 +261,15 @@ namespace Code.AStarCode
 
             while (temp.gameObject.GetComponent<AStar>().CameFrom)
             {
-                path.Add(temp);
-                temp = temp.gameObject.GetComponent<AStar>().CameFrom;
+                if (GameObject.Find("TileFrame(Clone)").GetComponent<InitiateAStar>().Active)
+                { 
+                    path.Add(temp); 
+                    temp = temp.gameObject.GetComponent<AStar>().CameFrom;
+                }
+                else
+                {
+                    return null;
+                }
             }
 
             path.Reverse();
